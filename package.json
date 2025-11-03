@@ -10,7 +10,7 @@
     "fix": "eslint . --fix",
     "eslint-fix": "eslint . --fix",
     "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.25",

@@ -1,7 +1,13 @@
 import type { NextRequest } from 'next/server'
-import { client, getInfo } from '@/app/api/utils/common'
+import { client, getInfo, checkReferer } from '@/app/api/utils/common'
 
 export async function POST(request: NextRequest) {
+  // リファラーチェック（iframe制限）
+  const refererError = checkReferer(request)
+  if (refererError) {
+    return refererError
+  }
+
   const body = await request.json()
   const {
     inputs,
